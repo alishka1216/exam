@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Вы уверены, что хотите удалить данные? {{ book.title }}</h2>
+    <form action="{% url 'book-delete' book.id %}", method="POST">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="да">
+    </form>
+    <a href="{% url "book-view" book.id %}"> <input class="btn btn-primary mt-2" type="submit" value="отмена"></a>
+{% endblock content %}
