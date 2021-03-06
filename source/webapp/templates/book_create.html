@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="{% url 'book-add' %}" method="post">
+    {% include "book_form.html" with button_text='Send' %}
+</form>
+{% endblock  %}
