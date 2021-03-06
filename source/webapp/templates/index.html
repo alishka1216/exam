@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Гостевая книга</h1>
+    {% if not books %}
+        <p>Нет книг</p>
+    {% endif %}
+    {% for book in books %}
+        <div class="card" style="width: 18rem;">
+  <div class="card-body">
+      <a href="{% url "book-view" book.id%}" class="card-text"> Имя: {{ book.title }}</a>
+    <h6 class="card-subtitle mb-2 text-muted">Почта: {{ book.mail }}</h6>
+      <h6 href="{% url "book-view" book.id%}" class="card-text">Описание: {{ book.description }} </h6>
+  </div>
+</div>
+        {% endfor %}
+{% endblock content %}
+
+

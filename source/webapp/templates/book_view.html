@@ -1,0 +1,21 @@
+
+{% extends "base.html" %}
+{% block  nav%}
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'book-update' book.id %}">Изменить</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'book-delete' book.id %}">удалить</a>
+      </li>
+{% endblock %}
+{%  block content %}
+
+
+
+    <h1>Гостевая книга № {{ book.id }}</h1>
+    <p>Имя: {{ book.title }}</p>
+    <p>Почта: {{ book.mail }}</p>
+    <p>Описание: {{ book.description }}</p>
+    <p>Создана: {{ book.created_at }}</p>
+
+{% endblock content %}
