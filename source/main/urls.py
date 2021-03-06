@@ -1,21 +1,18 @@
-"""main URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
+from webapp.views import (
+    index_view,
+    book_view,
+    book_create_view,
+    book_update_view,
+    book_delete_view
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', index_view, name='book-list'),
+    path('book/<int:pk>/', book_view, name='book-view'),
+    path('book/add/', book_create_view, name='book-add'),
+    path('book/update/<int:pk>/', book_update_view, name='book-update'),
+    path('book/delete/<int:pk>/', book_delete_view, name='book-delete')
 ]
